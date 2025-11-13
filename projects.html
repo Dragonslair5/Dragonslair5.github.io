@@ -7,16 +7,10 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Research Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html" class="active">Projects</a>
-    </nav>
-  </header>
+  <div data-include="assets/header.html"></div>
 
   <main>
+    <h2>Research Projects</h2>
     <ul>
       <li><strong>Parallel Algorithms for Multi-GPU Systems</strong> — exploring scalable computation across clusters.</li>
       <li><strong>Performance Tuning on Heterogeneous Architectures</strong> — optimizing kernels for modern CPUs and GPUs.</li>
@@ -24,8 +18,8 @@
     </ul>
   </main>
 
-  <footer>
-    <p>© 2025 Maurício Palma</p>
-  </footer>
+  <div data-include="assets/footer.html"></div>
+  <script src="assets/include.js"></script>
 </body>
 </html>
+
