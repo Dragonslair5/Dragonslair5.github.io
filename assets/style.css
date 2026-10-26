@@ -12,27 +12,159 @@ header, footer {
   background: #f0f0f0;
 }
 
+header h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);   /* smaller on phones, larger on monitors */
+}
+
+header p {
+  margin: 0 0 0.5rem;
+  color: #555;
+}
+
+/* reserve space so content doesn't jump when the header loads */
+div[data-include="assets/header.html"] { min-height: 140px; }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+}
+
 nav a {
-  margin: 0 10px;
+  padding: 0.4rem 0.6rem;    /* bigger tap targets */
   text-decoration: none;
   color: #007acc;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
+nav a:hover { text-decoration: underline; }
 
 main {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  max-width: 760px;
+  margin: 2rem 1rem;          /* side gutter on phones */
+  padding: 1.5rem 2rem;       /* breathing room inside the card */
   background: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
+@media (min-width: 800px) {
+  main { margin: 2.5rem auto; } /* centered on wider screens */
+}
+
+@media (max-width: 500px) {
+  main { padding: 1rem 1.25rem; }
+}
+
+main img { max-width: 100%; height: auto; }
+
+main h2 { margin-top: 0; }
+
+main h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+a { color: #007acc; }
+
+/* Home page: photo beside the bio, stacked on phones */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #e8e8e8;          /* placeholder colour until the photo exists */
+}
+
+.profile-text p { margin: 0; }
+
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .profile-photo { width: 150px; height: 150px; }
+}
+
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.interests li {
+  background: #eef6fc;
+  color: #005f9e;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+/* Publications page */
+.publications {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.publications li {
+  margin-bottom: 1.25rem;
+  padding-left: 0.25rem;
+}
+
+.publications span { display: block; }
+
+.pub-title { font-weight: 600; }
+
+.pub-authors,
+.pub-venue {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.pub-venue { font-style: italic; }
+
+.publications a { font-size: 0.9rem; }
 
 footer {
   font-size: 0.9rem;
   color: #666;
 }
 
+
+/* Theses: highlighted entries in the publications list */
+.publications li.thesis {
+  background: #f4f9fd;
+  border-left: 4px solid #007acc;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.publications .thesis-badge {
+  display: inline-block;      /* keeps the label small instead of a full line */
+  background: #007acc;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.35rem;
+}
+
+.pub-advisor {
+  color: #555;
+  font-size: 0.9rem;
+}
